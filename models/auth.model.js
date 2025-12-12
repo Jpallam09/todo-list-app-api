@@ -6,25 +6,25 @@ const userSchema = new mongoose.Schema({
         required: [true, 'Username is required'],
         unique: true,
         trim: true,
-        minleghth: 3,
-        maxleght: 30
+        minlength: 3,
+        maxlength: 30
     },
-
     email: {
         type: String,
-        required: [, 'Email is required'],
+        required: [true, 'Email is required'],
         unique: true,
         trim: true,
         lowercase: true
     },
     password: {
-        typre: String,
+        type: String,
         required: [true, 'Password is required'],
         minlength: 6,
-        maxlength: 55
+        maxlength: 255
     }
-}, { timestamps: true })
+}, { timestamps: true });
 
-const User = mongoose.model('User', userSchema);
+//'user' is the name of the collection in MongoDB
+const User = mongoose.model('User', userSchema, 'users');
 
 export default User;
